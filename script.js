@@ -35,11 +35,11 @@ var numeri = generaNumeri(numeriTotaliScelti);
 
 /* Creo array contenente tutti i numeri */
 function generaNumeri(x) {
-    let numeri = [];
+    let numbs = [];
     for (let i = 1; i < (x + 1); i++) {
-        numeri.push(i);
+        numbs.push(i);
     }
-    return numeri;
+    return numbs;
 }
 
 /* Creo array che conterrà i numeri minati */
@@ -49,14 +49,16 @@ var numeriMinati = [];
 /* Estraggo numeri casuali da "numeri" e li pusho in numeriMinati */
 for (i = 0; i < quantitàMine; i++) {
     let numeroRandom = Math.floor(1 + Math.random() * (numeri.length));
-    console.log(numeroRandom);
     let numeroEstratto = numeri.splice(numeroRandom, 1);
     numeriMinati.push(parseInt(numeroEstratto))
 }
 
+console.log(numeri);
+console.log(numeriMinati);
 /* Attivo loop per giocare */
 var play = true;
-while (play) {
+var numeriIndovinati = 0;
+while (play && numeriIndovinati <= 16) {
     var scelta = prompt("Scegli un numero contenuto nella lista\n" + numeri);
     scelta = parseInt(scelta);
 
@@ -67,12 +69,18 @@ while (play) {
         console.log("Ottima scelta, niente mine. Puoi continuare");
         for (let i = 0; i < numeri.length; i++) {
             if (numeri[i] === scelta) {
-                numeri.splice(numeri[i], 1);
+                numeri.splice(i, 1);
+                numeriIndovinati++;
             }
         }
     }
     
-    console.log(numeri);
+    var continua = console.log(("Bravo! Hai scelto 16 numeri non minati. Vuoi giocare ancora?").toString);
+    if (continua.toLower() === "si") {
+        numeriIndovinati = 0;
+    } else {
+        console.log("Grazie per aver giocato!");
+    }
 }
 
 
