@@ -53,13 +53,14 @@ for (i = 0; i < quantitàMine; i++) {
     numeriMinati.push(parseInt(numeroEstratto))
 }
 
-console.log(numeri);
-console.log(numeriMinati);
+console.log(numeri); // per debug
+console.log(numeriMinati); // per debug
 /* Attivo loop per giocare */
 var play = true;
 var numeriIndovinati = 0;
-while (play && numeriIndovinati <= 5) {
-    var scelta = prompt("Scegli un numero contenuto nella lista\n" + numeri);
+var numeriScelti = [];
+while (play) {
+    var scelta = prompt("Scegli un numero. Hai già scelto:\n" + numeriScelti);
     scelta = parseInt(scelta);
 
     if (numeriMinati.includes(scelta)) {
@@ -69,21 +70,23 @@ while (play && numeriIndovinati <= 5) {
         console.log("Ottima scelta, niente mine. Puoi continuare");
         for (let i = 0; i < numeri.length; i++) {
             if (numeri[i] === scelta) {
+                numeriScelti.push(scelta);
                 numeri.splice(i, 1);
                 numeriIndovinati++;
             }
         }
     }
-    
-}
 
-var continua = prompt(("Bravo! Hai scelto 16 numeri non minati. Vuoi giocare ancora?").toString());
-continua = continua.toLowerCase();
-if (continua === "si") {
-    numeriIndovinati = 0;
-} else {
-    console.log("Grazie per aver giocato!");
-    play = false;
+    if (numeriIndovinati === 5) {
+        var continua = prompt(("Bravo! Hai scelto 16 numeri non minati. Vuoi giocare ancora?").toString());
+        continua = continua.toLowerCase();
+        if (continua === "si") {
+            numeriIndovinati = 0;
+        } else {
+            console.log("Grazie per aver giocato!");
+            play = false;
+        }
+    }
 }
 
 
