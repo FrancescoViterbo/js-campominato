@@ -1,12 +1,6 @@
 /*
 Descrizione
-Il computer deve generare 16 numeri casuali tra 1 e 100.
-I numeri non possono essere duplicati
-In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
-L’utente non può inserire più volte lo stesso numero.
-Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
-La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
-Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
+
 BONUS: (da fare solo se funziona tutto il resto)
 all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali:
 con difficoltà 0 => tra 1 e 100
@@ -58,32 +52,38 @@ console.log(numeriMinati); // per debug
 /* Attivo loop per giocare */
 var play = true;
 var numeriIndovinati = 0;
+var punteggio = 0;
 var numeriScelti = [];
 while (play) {
     var scelta = prompt("Scegli un numero. Hai già scelto:\n" + numeriScelti);
     scelta = parseInt(scelta);
 
-    if (numeriMinati.includes(scelta)) {
-        console.log("Hai Perso!");
-        play = false;
+    if (numeriScelti.includes(scelta)) {
+        console.log("Hai già scelto questo numero")
     } else {
-        console.log("Ottima scelta, niente mine. Puoi continuare");
-        for (let i = 0; i < numeri.length; i++) {
-            if (numeri[i] === scelta) {
-                numeriScelti.push(scelta);
-                numeri.splice(i, 1);
-                numeriIndovinati++;
+        if (numeriMinati.includes(scelta)) {
+            console.log("Hai Perso!");
+            play = false;
+        } else {
+            console.log("Ottima scelta, niente mine. Puoi continuare");
+            for (let i = 0; i < numeri.length; i++) {
+                if (numeri[i] === scelta) {
+                    numeriScelti.push(scelta);
+                    numeri.splice(i, 1);
+                    numeriIndovinati++;
+                }
             }
         }
     }
 
     if (numeriIndovinati === 5) {
+        punteggio = punteggio + numeriIndovinati;
         var continua = prompt(("Bravo! Hai scelto 16 numeri non minati. Vuoi giocare ancora?").toString());
         continua = continua.toLowerCase();
         if (continua === "si") {
             numeriIndovinati = 0;
         } else {
-            console.log("Grazie per aver giocato!");
+            console.log("Grazie per aver giocato! Il tuo punteggio è:\n" + punteggio);
             play = false;
         }
     }
