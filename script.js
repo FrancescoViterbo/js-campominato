@@ -60,7 +60,7 @@ while (play) {
     var scelta = prompt("Scegli un numero contenuto nella lista\n" + numeri);
     scelta = parseInt(scelta);
 
-    if (numeriMinati.contains(scelta)) {
+    if (numeriMinati.includes(scelta)) {
         console.log("Hai Perso!");
         play = false;
     } else {
@@ -72,7 +72,7 @@ while (play) {
         }
     }
     
-    // console.log(numeri);
+    console.log(numeri);
 }
 
 
