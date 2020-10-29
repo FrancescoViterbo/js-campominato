@@ -18,7 +18,7 @@ label, button {
     padding: 1rem;
 }
 
-#casella {
+.casella {
     flex-grow: 0;
     flex-shrink: 0;
     height: 50px;
