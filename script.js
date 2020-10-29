@@ -10,7 +10,6 @@ var numeriMinati = [];
 /* Estraggo numeri casuali da "numeri" e li pusho in numeriMinati */
 for (i = 0; i < quantitàMine; i++) {
     let numeroRandom = Math.floor(Math.random() * (numeri.length));
-    console.log(numeroRandom);
     var numeroEstratto = numeri.splice(numeroRandom, 1);
     numeriMinati.push(parseInt(numeroEstratto));
 }
