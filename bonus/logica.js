@@ -10,7 +10,7 @@ var lista2 = [];
 var play = false;
 gioca.addEventListener("click", (event) => {generaNumeri(event, quantity.value, minesNumb.value);});
 
-/* Creo array contenente tutti i numeri */
+/* Creo le arrays contenenti i numeri */
 function generaNumeri(event, x, y) {
     event.preventDefault();
     x = parseInt(x);
