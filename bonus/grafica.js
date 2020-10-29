@@ -59,18 +59,22 @@ button.setAttribute("id", "gioca");
 button.innerHTML = "Gioca!";
 form.appendChild(button);
 
+/* Genera le caselle */
 function generaCaselle(x) {
     schermataPrincipale.innerHTML = "";
-    schermataPrincipale.classList.add("campo-minato");
+    var subDiv = document.createElement("div");
+    subDiv.classList.add("campo-minato");
+    schermataPrincipale.appendChild(subDiv);
 
     for(i = 1; i < (x + 1); i++) {
         var casella = document.createElement("div");
         casella.classList.add("casella");
         casella.setAttribute("id", i.toString());
-        schermataPrincipale.appendChild(casella);
+        subDiv.appendChild(casella);
     }
 }
 
+/* Genera il layout a fine partita */
 function sconfitta(x) {
     var scheda = document.createElement("div");
     scheda.classList.add("lost");
