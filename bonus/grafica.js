@@ -91,3 +91,21 @@ function sconfitta(x) {
     resetBtn.setAttribute("onClick", "window.location.reload()");
     scheda.appendChild(resetBtn);
 }
+
+/* Genera il layout di vittoria */
+function vittoria(x) {
+    var scheda = document.createElement("div");
+    scheda.classList.add("lost");
+    schermataPrincipale.appendChild(scheda);
+    var titolo = document.createElement("h1");
+    titolo.innerHTML = "Hai Vinto!";
+    scheda.appendChild(titolo);
+    var punteggio = document. createElement("h3");
+    punteggio.innerHTML = "Hai totalizzato " + x + " punti.";
+    scheda.appendChild(punteggio);
+    var resetBtn = document.createElement("button");
+    resetBtn.innerHTML = "Riavvia";
+    resetBtn.setAttribute("id", "reset-btn");
+    resetBtn.setAttribute("onClick", "window.location.reload()");
+    scheda.appendChild(resetBtn);
+}

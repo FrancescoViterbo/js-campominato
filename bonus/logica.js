@@ -28,18 +28,23 @@ function generaNumeri(event, x, y) {
         listaMine.push(parseInt(numeroEstratto));
     }
     generaCaselle(x);
-    attivaGioco();
+    attivaGioco(x, y);
 }
 
-function attivaGioco() {
+function attivaGioco(tiles, mines) {
     const caselle = document.getElementsByClassName("casella");
-    console.log(caselle);
     for (let casella = 0; casella < caselle.length; casella++) {
         caselle[casella].addEventListener("click", () => {verificaCasella(caselle[casella].id);});
+        caselle[casella].addEventListener("contextmenu", (event) => {contrassegnaCasella(event, caselle[casella].id);});
+    }
+
+    function contrassegnaCasella(event, x) {
+        event.preventDefault();
+        caselle[x - 1].innerHTML = "X";
     }
 
     function verificaCasella(x) {
-        console.log(listaMine);
+        
         x = parseInt(x);
         let mineVicine = 0;
         if (listaMine.includes(x)) {
@@ -97,6 +102,9 @@ function attivaGioco() {
                 }            
             }
             caselle[x - 1].innerHTML = mineVicine;
+            if (punteggio + mines === tiles) {
+                vittoria(punteggio);
+            }
         }
     }
 }
