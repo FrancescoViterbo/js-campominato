@@ -58,3 +58,16 @@ var button = document.createElement("button");
 button.setAttribute("id", "gioca");
 button.innerHTML = "Gioca!";
 form.appendChild(button);
+
+function generaCaselle(x) {
+    console.log(x);
+    schermataPrincipale.innerHTML = "";
+    schermataPrincipale.classList.add("campo-minato");
+    
+    for(i = 0; i < x; i++) {
+        var casella = document.createElement("div");
+        casella.setAttribute("id", "casella");
+        schermataPrincipale.appendChild(casella);
+
+    }
+}

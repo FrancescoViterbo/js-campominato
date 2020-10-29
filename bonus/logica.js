@@ -5,9 +5,7 @@ const minesNumb = document.getElementById("mines-numb");
 const gioca = document.getElementById("gioca");
 
 /* Event Listeners */
-var lista1 = [];
-var lista2 = [];
-var play = false;
+var listaMine = [];
 gioca.addEventListener("click", (event) => {generaNumeri(event, quantity.value, minesNumb.value);});
 
 /* Creo le arrays contenenti i numeri */
@@ -16,29 +14,11 @@ function generaNumeri(event, x, y) {
     x = parseInt(x);
     y = parseInt(y);
 
-    let numbs = [];
-    for (let i = 1; i < (x + 1); i++) {
-        numbs.push(i);
-    }
-
     let numeriMinati = [];
     for (i = 0; i < y; i++) {
-        let numeroRandom = 1 + Math.floor(Math.random() * (numbs.length - 1));
-        let numeroEstratto = numbs.splice(numeroRandom, 1);
-        numeriMinati.push(parseInt(numeroEstratto))
+        let numeroRandom = 1 + Math.floor(Math.random() * (x));
+        listaMine.push(parseInt(numeroRandom))
     }
-    lista1 = numbs;
-    lista2 = numeriMinati;
-    play = true;
-    console.log([lista1, lista2, play]);
+    console.log(x);
+    generaCaselle(x);
 }
-
-while (play) {
-    prompt("stai giocando");
-}
-
-
-
-
-
-
