@@ -28,13 +28,9 @@ while (play) {
             play = false;
         } else {
             console.log("Ottima scelta, niente mine. Puoi continuare");
-            for (let i = 0; i < numeri.length; i++) {
-                if (numeri[i] === scelta) {
                     numeriScelti.push(scelta);
                     numeriIndovinati++;
                     punteggio++;
-                }
-            }
         }
     }
 
