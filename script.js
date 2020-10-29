@@ -1,21 +1,13 @@
-/* Genero l'array delle caselle generiche (100 caselle) */
-var numeri = [];
-for (let i = 1; i < (100 + 1); i++) {
-    numeri.push(i);
-}
-
 /* Creo array che conterrà i numeri minati (16 mine) */
 var quantitàMine = 16;
 var numeriMinati = [];
 
 /* Estraggo numeri casuali da "numeri" e li pusho in numeriMinati */
 for (i = 0; i < quantitàMine; i++) {
-    let numeroRandom = 1 + Math.floor(Math.random() * (numeri.length - 1));
-    let numeroEstratto = numeri.splice(numeroRandom, 1);
-    numeriMinati.push(parseInt(numeroEstratto))
+    let numeroRandom = 1 + Math.floor(Math.random() * (100));
+    numeriMinati.push(parseInt(numeroRandom));
 }
 
-console.log(numeri); // per debug
 console.log(numeriMinati); // per debug
 /* Attivo loop per giocare */
 var play = true;
@@ -28,16 +20,17 @@ while (play) {
 
     if (numeriScelti.includes(scelta)) {
         console.log("Hai già scelto questo numero")
+    } else if (scelta > 100 || scelta < 1) {
+        console.log("Puoi scegliere solo numeri fra 1 e 100.");
     } else {
         if (numeriMinati.includes(scelta)) {
-            console.log("Hai Perso!Il tuo punteggio è:\n" + punteggio);
+            console.log("Hai Perso! Il tuo punteggio è:\n" + punteggio);
             play = false;
         } else {
             console.log("Ottima scelta, niente mine. Puoi continuare");
             for (let i = 0; i < numeri.length; i++) {
                 if (numeri[i] === scelta) {
                     numeriScelti.push(scelta);
-                    numeri.splice(i, 1);
                     numeriIndovinati++;
                     punteggio++;
                 }

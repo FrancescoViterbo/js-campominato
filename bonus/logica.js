@@ -23,7 +23,7 @@ function generaNumeri(event, x, y) {
 
     let numeriMinati = [];
     for (i = 0; i < y; i++) {
-        let numeroRandom = 1 + Math.floor(Math.random() * (numbs.length));
+        let numeroRandom = 1 + Math.floor(Math.random() * (numbs.length - 1));
         let numeroEstratto = numbs.splice(numeroRandom, 1);
         numeriMinati.push(parseInt(numeroEstratto))
     }
