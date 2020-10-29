@@ -63,7 +63,7 @@ function generaCaselle(x) {
     schermataPrincipale.innerHTML = "";
     schermataPrincipale.classList.add("campo-minato");
 
-    for(i = 0; i < x; i++) {
+    for(i = 1; i < (x + 1); i++) {
         var casella = document.createElement("div");
         casella.classList.add("casella");
         casella.setAttribute("id", i.toString());

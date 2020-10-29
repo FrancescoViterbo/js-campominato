@@ -1,13 +1,21 @@
+var numeri = [];
+
+for (i = 1; i < 101; i++) {
+    numeri.push(i);
+}
 /* Creo array che conterrà i numeri minati (16 mine) */
 var quantitàMine = 16;
 var numeriMinati = [];
 
 /* Estraggo numeri casuali da "numeri" e li pusho in numeriMinati */
 for (i = 0; i < quantitàMine; i++) {
-    let numeroRandom = 1 + Math.floor(Math.random() * (100));
-    numeriMinati.push(parseInt(numeroRandom));
+    let numeroRandom = Math.floor(Math.random() * (numeri.length));
+    console.log(numeroRandom);
+    var numeroEstratto = numeri.splice(numeroRandom, 1);
+    numeriMinati.push(parseInt(numeroEstratto));
 }
 
+console.log(numeri); // per debug
 console.log(numeriMinati); // per debug
 /* Attivo loop per giocare */
 var play = true;
