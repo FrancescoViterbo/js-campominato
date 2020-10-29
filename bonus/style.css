@@ -62,8 +62,8 @@ button {
     height: 50px;
     width: 50px;
     border-radius: 5px;
-    border: 1px solid rgb(131, 79, 30);
-    background-color: green;
+    border: 1px solid rgb(100, 69, 40);
+    background-color: rgb(91, 170, 91);
     line-height: 50px;
     font-weight: bold;
 }

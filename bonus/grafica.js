@@ -94,6 +94,8 @@ function sconfitta(x) {
 
 /* Genera il layout di vittoria */
 function vittoria(x) {
+    /* Do un bonus vittoria di 100 punti */
+    x = x + 100;
     var scheda = document.createElement("div");
     scheda.classList.add("lost");
     schermataPrincipale.appendChild(scheda);
