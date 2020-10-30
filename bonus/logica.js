@@ -49,6 +49,9 @@ function attivaGioco(tiles, mines) {
         moltiplicatorePunteggio++;
     }
 
+    /* Selectors ed event listeners del campo minato */
+    const campoMinato = document.querySelector(".campo-minato");
+    campoMinato.addEventListener('contextmenu', event => event.preventDefault());
     /* Selectors ed event listeners di tutte le caselle */
     const caselle = document.getElementsByClassName("casella");
     for (let casella = 0; casella < caselle.length; casella++) {
@@ -56,10 +59,18 @@ function attivaGioco(tiles, mines) {
         caselle[casella].addEventListener("contextmenu", (event) => {contrassegnaCasella(event, caselle[casella].id);});
     }
 
-    /* Al click destro dovrebbe aggiungere un contrassegno, da debuggare */
+    /* Al click destro aggiunge un contrassegno */
     function contrassegnaCasella(event, x) {
         event.preventDefault();
-        caselle[x - 1].innerHTML = "X";
+        if (caselle[x - 1].classList.contains("flaggata")) {
+            caselle[x - 1].classList.remove("flaggata");
+            caselle[x - 1].innerHTML = "";
+            caselle[x - 1].style.backgroundColor = "";
+        } else {
+            caselle[x - 1].classList.add("flaggata");
+            caselle[x - 1].style.backgroundColor = "lightblue";
+            caselle[x - 1].innerHTML = "<img src='imgs/bandiera.png'>";
+        }
     }
 
     /* Funzione che si attiva al click sulla casella e verifica il suo contenuto */
@@ -69,7 +80,7 @@ function attivaGioco(tiles, mines) {
         let mineVicine = 0;
         if (listaMine.includes(x)) {
             caselle[x - 1].style.backgroundColor = "red";
-            caselle[x - 1].innerHTML = "Mina!";
+            caselle[x - 1].innerHTML = "<img src='imgs/mina.png'>";
             /* ... avvio la funzione "sconfitta" */
             sconfitta(punteggio * moltiplicatorePunteggio);
         } else {

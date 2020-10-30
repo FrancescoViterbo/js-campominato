@@ -57,6 +57,7 @@ button {
 }
 
 .casella {
+    position: relative;
     flex-grow: 0;
     flex-shrink: 0;
     height: 50px;
@@ -66,6 +67,15 @@ button {
     background-color: rgb(91, 170, 91);
     line-height: 50px;
     font-weight: bold;
+}
+
+.casella img {
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .lost {
@@ -80,4 +90,14 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* animation: lostAppear 1s ease forwards; */
+    /* display: none; */
 }
+
+/* @keyframes lostAppear {
+    from {
+        display: none;
+    } to {
+        display: block;
+    }
+} */
