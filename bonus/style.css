@@ -37,7 +37,8 @@ form {
     align-items: center;
     padding: 2rem;
     border-radius: 10px;
-    background-color: rgb(106, 214, 214);
+    background-color: rgb(230, 211, 159);
+    box-shadow: 0 0 10px black;
 }
 
 label, button {
@@ -62,9 +63,10 @@ button {
     justify-content: center;
     align-items: center;
     width: 550px;
-    background-color: rgb(83, 59, 36);
+    background-color: rgb(230, 211, 159);
     padding: 1rem;
     margin: 1rem auto;
+    box-shadow: 0 0 10px black;
 }
 
 .casella {
