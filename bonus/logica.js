@@ -51,7 +51,7 @@ function attivaGioco(tiles, mines) {
 
     /* Selectors ed event listeners del campo minato */
     const campoMinato = document.querySelector(".campo-minato");
-    campoMinato.addEventListener('contextmenu', event => event.preventDefault());
+    campoMinato.addEventListener('contextmenu', (event) => event.preventDefault());
     /* Selectors ed event listeners di tutte le caselle */
     const caselle = document.getElementsByClassName("casella");
     for (let casella = 0; casella < caselle.length; casella++) {

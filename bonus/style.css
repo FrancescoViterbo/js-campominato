@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+body {
+    background: url("imgs/marginalia-hills.png");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: sans-serif;
+}
+
 h1 {
     padding: 2rem 0;
     text-align: center;
@@ -21,6 +29,8 @@ h3 {
 }
 
 form {
+    max-width: 300px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,12 +56,13 @@ button {
 }
 
 .campo-minato {
+    border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 550px;
-    background-color: rgb(131, 79, 30);
+    background-color: rgb(83, 59, 36);
     padding: 1rem;
     margin: 1rem auto;
 }
