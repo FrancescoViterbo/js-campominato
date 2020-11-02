@@ -66,6 +66,8 @@ function attivaGioco(tiles, mines) {
             caselle[x - 1].classList.remove("flaggata");
             caselle[x - 1].innerHTML = "";
             caselle[x - 1].style.backgroundColor = "";
+        } else if (caselle[x - 1].style.backgroundColor === "gray") {
+            
         } else {
             caselle[x - 1].classList.add("flaggata");
             caselle[x - 1].style.backgroundColor = "lightblue";
